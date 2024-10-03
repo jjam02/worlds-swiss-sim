@@ -1,0 +1,53 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "BLG",
+        "red": "MAD"
+      }
+    },
+    {
+      "match": {
+        "blue": "TES",
+        "red": "T1"
+      }
+    },
+    {
+      "match": {
+        "blue": "GEN",
+        "red": "WBG"
+      }
+    },
+    {
+      "match": {
+        "blue": "FNC",
+        "red": "DK"
+      }
+    },
+    {
+      "match": {
+        "blue": "TL",
+        "red": "LNG"
+      }
+    },
+    {
+      "match": {
+        "blue": "HLE",
+        "red": "PSG"
+      }
+    },
+    {
+      "match": {
+        "blue": "FLY",
+        "red": "GAM"
+      }
+    },
+    {
+      "match": {
+        "blue": "G2",
+        "red": "PNG"
+      }
+    }
+  ]
+}
+ 
