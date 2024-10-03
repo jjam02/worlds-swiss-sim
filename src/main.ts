@@ -1,7 +1,5 @@
 import "./style.css";
-import typescriptLogo from "./typescript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.ts";
+
 import HLE from "./HLE.jpeg";
 import PSG from "./PSG.png";
 import FLY from "./FLY.png";
@@ -28,8 +26,8 @@ interface Team {
 }
 
 interface Match {
-  blue: string;
-  red: string;
+  blue: string | undefined;
+  red: string | undefined;
 }
 
 interface Bracket {
@@ -59,15 +57,15 @@ let teams: Team[] = [
 
 let app = document.querySelector<HTMLDivElement>("#app");
 
-function addTeams(teams: Team[], title: string = "") {
+function addTeams(teams: (Team | undefined)[], title: string = "") {
   let div = document.createElement("div");
   div.classList.add("finalTeams");
   div.textContent = title;
   teams.forEach((team) => {
     let button = document.createElement("button");
-    button.innerHTML = `<img src=${team.picture}><div> ${team.name} ${
-      team.region
-    }#${team.rating.toString()}</div>`;
+    button.innerHTML = `<img src=${team?.picture}><div> ${team?.name} ${
+      team?.region
+    }#${team?.rating.toString()}</div>`;
     div.append(button);
   });
 
@@ -92,13 +90,13 @@ data.Matches.forEach((match, index) => {
   let team1 = teams.find((team) => team.name === match.match.blue);
   let team2 = teams.find((team) => team.name === match.match.red);
   console.log(team1);
-  button.innerHTML = `<img src=${team1.picture}><div>${team1.name} ${
-    team1.region
-  }#${team1.rating.toString()}</div>`;
+  button.innerHTML = `<img src=${team1?.picture}><div>${team1?.name} ${
+    team1?.region
+  }#${team1?.rating.toString()}</div>`;
   let button2 = document.createElement("button");
-  button2.innerHTML = `<img src=${team2.picture}><div>${team2.name} ${
-    team2.region
-  }#${team2.rating.toString()}</div>`;
+  button2.innerHTML = `<img src=${team2?.picture}><div>${team2?.name} ${
+    team2?.region
+  }#${team2?.rating.toString()}</div>`;
   addListeners(button, button2);
   div.append(button, button2);
   round1Container.append(div);
@@ -130,15 +128,15 @@ function addListeners(button1: HTMLButtonElement, button2: HTMLButtonElement) {
 let round1End = document.getElementById("round1End");
 round1End?.addEventListener("click", round2Setup);
 
-let round2Win: Team[] = [];
-let round2Lose: Team[] = [];
-let round3Win: Team[] = [];
-let round3WinLose: Team[] = [];
-let round3Lose: Team[] = [];
-let round4Win: Team[] = [];
-let round4Lose: Team[] = [];
-let round5: Team[] = [];
-let finalTeams: Team[] = [];
+let round2Win: (Team | undefined)[] = [];
+let round2Lose: (Team | undefined)[] = [];
+let round3Win: (Team | undefined)[] = [];
+let round3WinLose: (Team | undefined)[] = [];
+let round3Lose: (Team | undefined)[] = [];
+let round4Win: (Team | undefined)[] = [];
+let round4Lose: (Team | undefined)[] = [];
+let round5: (Team | undefined)[] = [];
+let finalTeams: (Team | undefined)[] = [];
 
 function round2Setup() {
   if (round2Win.length > 1) return;
@@ -172,20 +170,24 @@ function round2Setup() {
   generateBracket(round2Lose, "R2L", "0-1");
 }
 
-function generateBracket(teams: Team[], round: string, title: string) {
+function generateBracket(
+  teams: (Team | undefined)[],
+  round: string,
+  title: string
+) {
   console.log(title + round + " GENERATING...");
   let roundMatches: Bracket = { Matches: [] };
   while (teams.length > 0) {
     let blue = pickATeam(teams);
     let red = pickATeam(teams);
     roundMatches.Matches.push({
-      match: { blue: blue.name, red: red.name },
+      match: { blue: blue?.name, red: red?.name },
     });
   }
   roundGenerator(roundMatches, round, title);
 }
 
-function pickATeam(pool: Team[]) {
+function pickATeam(pool: (Team | undefined)[]) {
   let index = Math.floor(Math.random() * pool.length);
   return pool.splice(index, 1)[0];
 }
@@ -212,13 +214,13 @@ function roundGenerator(data: Bracket, round: string, title: string) {
     let team1 = teams.find((team) => team.name === match.match.blue);
     let team2 = teams.find((team) => team.name === match.match.red);
     console.log(team1);
-    button.innerHTML = `<img src=${team1.picture}><div>${team1.name} ${
-      team1.region
-    }#${team1.rating.toString()}</div>`;
+    button.innerHTML = `<img src=${team1?.picture}><div>${team1?.name} ${
+      team1?.region
+    }#${team1?.rating.toString()}</div>`;
     let button2 = document.createElement("button");
-    button2.innerHTML = `<img src=${team2.picture}><div>${team2.name} ${
-      team2.region
-    }#${team2.rating.toString()}</div>`;
+    button2.innerHTML = `<img src=${team2?.picture}><div>${team2?.name} ${
+      team2?.region
+    }#${team2?.rating.toString()}</div>`;
     addListeners(button, button2);
     div.append(button, button2);
     roundContainer.append(div);
