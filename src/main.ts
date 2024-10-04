@@ -17,6 +17,8 @@ import DK from "./DWG.png";
 import GEN from "./GEN.png";
 import WBG from "./WBG.png";
 import data from "./Matchups.json";
+import day2WData from "./MatchupsDay2W.json";
+import day2LData from "./MatchupsDay2L.json";
 
 interface Team {
   name: string;
@@ -28,6 +30,7 @@ interface Team {
 interface Match {
   blue: string | undefined;
   red: string | undefined;
+  winner: string | undefined;
 }
 
 interface Bracket {
@@ -86,14 +89,24 @@ data.Matches.forEach((match, index) => {
   let div = document.createElement("div");
   div.setAttribute("id", `R1${"M" + index.toString()}`);
   let button = document.createElement("button");
-  console.log(match.match.blue);
+  //console.log(match.match.blue);
   let team1 = teams.find((team) => team.name === match.match.blue);
   let team2 = teams.find((team) => team.name === match.match.red);
-  console.log(team1);
+  //console.log(team1);
+  if (team1?.name === match.match.winner) {
+    button.classList.add("selected");
+  } else {
+    button.classList.add("loser");
+  }
   button.innerHTML = `<img src=${team1?.picture}><div>${team1?.name} ${
     team1?.region
   }#${team1?.rating.toString()}</div>`;
   let button2 = document.createElement("button");
+  if (team2?.name === match.match.winner) {
+    button2.classList.add("selected");
+  } else {
+    button2.classList.add("loser");
+  }
   button2.innerHTML = `<img src=${team2?.picture}><div>${team2?.name} ${
     team2?.region
   }#${team2?.rating.toString()}</div>`;
@@ -101,7 +114,7 @@ data.Matches.forEach((match, index) => {
   div.append(button, button2);
   round1Container.append(div);
 
-  console.log(match.match.blue + " vs " + match.match.red);
+  //console.log(match.match.blue + " vs " + match.match.red);
 });
 
 app?.prepend(round1Container);
@@ -113,7 +126,6 @@ function addListeners(button1: HTMLButtonElement, button2: HTMLButtonElement) {
     button1.classList.add("selected");
     button2.classList.remove("selected");
     button2.classList.add("loser");
-    console.log("clicked me");
   });
   button2.addEventListener("click", () => {
     document.querySelector("div.finalTeams")?.remove();
@@ -121,7 +133,6 @@ function addListeners(button1: HTMLButtonElement, button2: HTMLButtonElement) {
     button2.classList.add("selected");
     button1.classList.add("loser");
     button1.classList.remove("selected");
-    console.log("clicked me");
   });
 }
 
@@ -137,11 +148,13 @@ let round4Win: (Team | undefined)[] = [];
 let round4Lose: (Team | undefined)[] = [];
 let round5: (Team | undefined)[] = [];
 let finalTeams: (Team | undefined)[] = [];
+roundGenerator(day2WData, "R2W", "1-0");
+roundGenerator(day2LData, "R2L", "0-1");
 
 function round2Setup() {
   if (round2Win.length > 1) return;
   for (let i = 0; i < 8; i++) {
-    console.log(`div#R1M${i} button#selected`);
+    //console.log(`div#R1M${i} button#selected`);
     let winner = document
       .querySelector(`div#R1M${i} button.selected`)
       ?.textContent?.split(" ")[0];
@@ -149,6 +162,8 @@ function round2Setup() {
     let loser = document
       .querySelector(`div#R1M${i} button.loser`)
       ?.textContent?.split(" ")[0];
+
+    console.log("WINNER: " + winner + " LOSER: " + loser);
     if (winner !== undefined) {
       round2Win.push(teams.find((team) => team.name === winner));
     }
@@ -156,8 +171,7 @@ function round2Setup() {
       round2Lose.push(teams.find((team) => team.name === loser));
     }
   }
-  if (round2Win.length < 7) {
-    console.log("AIUWGHdiUAGWDIUG");
+  if (round2Win.length < 7 || round2Lose.length < 7) {
     alert("select a team in every match!");
     round2Win.length = 0;
     round2Lose.length = 0;
@@ -194,6 +208,7 @@ function pickATeam(pool: (Team | undefined)[]) {
 
 function roundGenerator(data: Bracket, round: string, title: string) {
   console.log("ROUND GEN....." + round + title);
+  console.log(data);
   let endRoundButton = document.createElement("button");
   endRoundButton.setAttribute("id", round + title + "End");
   endRoundButton.textContent = "Next Round";
@@ -213,11 +228,21 @@ function roundGenerator(data: Bracket, round: string, title: string) {
     console.log(match.match.blue);
     let team1 = teams.find((team) => team.name === match.match.blue);
     let team2 = teams.find((team) => team.name === match.match.red);
+    if (team1?.name === match.match.winner) {
+      button.classList.add("selected");
+    } else {
+      button.classList.add("loser");
+    }
     console.log(team1);
     button.innerHTML = `<img src=${team1?.picture}><div>${team1?.name} ${
       team1?.region
     }#${team1?.rating.toString()}</div>`;
     let button2 = document.createElement("button");
+    if (team2?.name === match.match.winner) {
+      button2.classList.add("selected");
+    } else {
+      button2.classList.add("loser");
+    }
     button2.innerHTML = `<img src=${team2?.picture}><div>${team2?.name} ${
       team2?.region
     }#${team2?.rating.toString()}</div>`;

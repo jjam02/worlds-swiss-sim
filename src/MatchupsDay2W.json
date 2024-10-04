@@ -1,0 +1,34 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "G2",
+        "red": "HLE",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "DK",
+        "red": "FLY",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "GEN",
+        "red": "TES",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "BLG",
+        "red": "LNG",
+        "winner" :""
+      }
+    }
+    
+  ]
+}
+ 
