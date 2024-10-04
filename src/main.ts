@@ -195,7 +195,7 @@ function generateBracket(
     let blue = pickATeam(teams);
     let red = pickATeam(teams);
     roundMatches.Matches.push({
-      match: { blue: blue?.name, red: red?.name },
+      match: { blue: blue?.name, red: red?.name, winner: "" },
     });
   }
   roundGenerator(roundMatches, round, title);
