@@ -1,0 +1,21 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "PNG",
+        "red": "TL",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "MAD",
+        "red": "GAM",
+        "winner" :""
+      }
+    }
+    
+    
+  ]
+}
+ 

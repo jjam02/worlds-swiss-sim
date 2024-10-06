@@ -1,0 +1,34 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "BLG",
+        "red": "T1",
+        "winner" :"T1"
+      }
+    },
+    {
+      "match": {
+        "blue": "FLY",
+        "red": "PSG",
+        "winner" :"FLY"
+      }
+    },
+    {
+      "match": {
+        "blue": "TES",
+        "red": "FNC",
+        "winner" :"TES"
+      }
+    },
+    {
+      "match": {
+        "blue": "G2",
+        "red": "WBG",
+        "winner" :"G2"
+      }
+    }
+    
+  ]
+}
+ 

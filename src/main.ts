@@ -19,6 +19,9 @@ import WBG from "./WBG.png";
 import data from "./Matchups.json";
 import day2WData from "./MatchupsDay2W.json";
 import day2LData from "./MatchupsDay2L.json";
+import day3WData from "./MatchupsDay3W.json";
+import day3LData from "./MatchupsDay3L.json";
+import day3WLData from "./MatchupsDay3WL.json";
 
 interface Team {
   name: string;
@@ -150,6 +153,11 @@ let round5: (Team | undefined)[] = [];
 let finalTeams: (Team | undefined)[] = [];
 roundGenerator(day2WData, "R2W", "1-0");
 roundGenerator(day2LData, "R2L", "0-1");
+roundGenerator(day3WData, "R3W", "2-0");
+
+roundGenerator(day3WLData, "R3WL", "1-1");
+
+roundGenerator(day3LData, "R3L", "0-2");
 
 function round2Setup() {
   if (round2Win.length > 1) return;

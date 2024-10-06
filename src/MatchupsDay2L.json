@@ -5,28 +5,28 @@
       "match": {
         "blue": "T1",
         "red": "PNG",
-        "winner" :""
+        "winner" :"T1"
       }
     },
     {
       "match": {
         "blue": "PSG",
         "red": "MAD",
-        "winner" :""
+        "winner" :"PSG"
       }
     },
     {
       "match": {
         "blue": "TL",
         "red": "WBG",
-        "winner" :""
+        "winner" :"WBG"
       }
     },
     {
       "match": {
         "blue": "FNC",
         "red": "GAM",
-        "winner" :""
+        "winner" :"FNC"
       }
     }
   ]

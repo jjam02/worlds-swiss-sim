@@ -1,0 +1,21 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "HLE",
+        "red": "GEN",
+        "winner" :"GEN"
+      }
+    },
+    {
+      "match": {
+        "blue": "DK",
+        "red": "LNG",
+        "winner" :"LNG"
+      }
+    }
+    
+    
+  ]
+}
+ 

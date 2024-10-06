@@ -4,28 +4,28 @@
       "match": {
         "blue": "G2",
         "red": "HLE",
-        "winner" :""
+        "winner" :"HLE"
       }
     },
     {
       "match": {
         "blue": "DK",
         "red": "FLY",
-        "winner" :""
+        "winner" :"DK"
       }
     },
     {
       "match": {
         "blue": "GEN",
         "red": "TES",
-        "winner" :""
+        "winner" :"GEN"
       }
     },
     {
       "match": {
         "blue": "BLG",
         "red": "LNG",
-        "winner" :""
+        "winner" :"LNG"
       }
     }
     
