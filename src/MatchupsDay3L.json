@@ -4,14 +4,14 @@
       "match": {
         "blue": "PNG",
         "red": "TL",
-        "winner" :""
+        "winner" :"TL"
       }
     },
     {
       "match": {
         "blue": "MAD",
         "red": "GAM",
-        "winner" :""
+        "winner" :"GAM"
       }
     }
     

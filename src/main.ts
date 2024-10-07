@@ -22,6 +22,8 @@ import day2LData from "./MatchupsDay2L.json";
 import day3WData from "./MatchupsDay3W.json";
 import day3LData from "./MatchupsDay3L.json";
 import day3WLData from "./MatchupsDay3WL.json";
+import day4LData from "./MatchupsDay4L.json";
+import day4WData from "./MatchupsDay4W.json";
 
 interface Team {
   name: string;
@@ -158,6 +160,8 @@ roundGenerator(day3WData, "R3W", "2-0");
 roundGenerator(day3WLData, "R3WL", "1-1");
 
 roundGenerator(day3LData, "R3L", "0-2");
+roundGenerator(day4WData, "R4W", "2-1");
+roundGenerator(day4LData, "R4L", "1-2");
 
 function round2Setup() {
   if (round2Win.length > 1) return;

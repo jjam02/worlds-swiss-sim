@@ -1,0 +1,28 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "TES",
+        "red": "DK",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "G2",
+        "red": "T1",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "HLE",
+        "red": "FLY",
+        "winner" :""
+      }
+    }
+    
+    
+  ]
+}
+ 

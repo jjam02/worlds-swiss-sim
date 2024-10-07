@@ -1,0 +1,28 @@
+{
+  "Matches": [
+    {
+      "match": {
+        "blue": "TL",
+        "red": "GAM",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "FNC",
+        "red": "WBG",
+        "winner" :""
+      }
+    },
+    {
+      "match": {
+        "blue": "BLG",
+        "red": "PSG",
+        "winner" :""
+      }
+    }
+    
+    
+  ]
+}
+ 
